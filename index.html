@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Línea del Tiempo - 2 Años</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fdf2f8;
+            overflow-x: hidden;
+        }
+        .font-romantic {
+            font-family: 'Dancing Script', cursive;
+        }
+        .book-container {
+            perspective: 1500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .book {
+            width: 100%;
+            max-width: 450px;
+            height: 680px;
+            position: relative;
+        }
+        .page {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            padding: 25px;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid #fbcfe8;
+            overflow-y: auto;
+        }
+        .page.active {
+            display: flex;
+            animation: flipIn 0.6s ease-out;
+        }
+        @keyframes flipIn {
+            from { opacity: 0; transform: rotateY(-30deg) translateX(-20px); }
+            to { opacity: 1; transform: rotateY(0deg) translateX(0); }
+        }
+        .nav-btn {
+            background: #db2777;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .nav-btn:hover { background: #be185d; transform: translateY(-2px); }
+        .nav-btn:disabled { background: #f9a8d4; cursor: not-allowed; transform: none; }
+        
+        .gear {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.15;
+            animation: spin 15s linear infinite;
+        }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        
+        .photo-frame {
+            border: 10px solid white;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            transform: rotate(-1deg);
+            max-width: 100%;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .music-heart {
+            cursor: pointer;
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.15); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+            70% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Decoración de fondo -->
+    <svg class="gear w-48 h-48 text-pink-400 top-[-20px] right-[-20px]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+
+    <div class="book-container">
+        <div class="book" id="book">
+            
+            <!-- PORTADA -->
+            <div class="page active" id="p0">
+                <div class="text-center mt-8">
+                    <h1 class="text-4xl font-romantic text-pink-600 mb-6">Nuestra Línea del Mundo</h1>
+                    <div class="flex justify-center mb-6">
+                        <img src="1000194013.jpg" class="w-64 rounded-2xl shadow-xl border-4 border-pink-100">
+                    </div>
+                    <p class="text-xl italic text-gray-500 font-romantic">Labmem 001 & 004</p>
+                    <div class="mt-10 p-4 border-t border-pink-100">
+                        <p class="text-pink-500 font-bold text-2xl">2 Años</p>
+                        <p class="text-xs text-gray-400 mt-4 animate-bounce">Pulsa "Siguiente" para empezar →</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGINAS DE FOTOS -->
+            <div class="page" id="p1">
+                <h2 class="text-2xl font-romantic text-pink-500 mb-4">Donde todo comenzó</h2>
+                <img src="1000193916.jpg" class="photo-frame" alt="Foto 1">
+                <p class="text-sm text-gray-600 italic">"Nuestros primeros pasos juntos..."</p>
+            </div>
+
+            <div class="page" id="p2">
+                <h2 class="text-2xl font-romantic text-pink-500 mb-4">Momentos dulces</h2>
+                <img src="1000193947.jpg" class="photo-frame" alt="Foto 2">
+                <p class="text-sm text-gray-600 italic">"Bajo el sol, siempre contigo."</p>
+            </div>
+
+            <div class="page" id="p3">
+                <h2 class="text-2xl font-romantic text-pink-500 mb-4">Cualquier lugar es especial</h2>
+                <img src="1000193950.jpg" class="photo-frame" alt="Foto 3">
+                <p class="text-sm text-gray-600 italic">"Incluso en un bus, la aventura es perfecta."</p>
+            </div>
+
+            <div class="page" id="p4">
+                <h2 class="text-2xl font-romantic text-pink-500 mb-4">Vistas inolvidables</h2>
+                <img src="1000193983.jpg" class="photo-frame" alt="Foto 4">
+                <p class="text-sm text-gray-600 italic">"Conquistando el mundo, un paso a la vez."</p>
+            </div>
+
+            <div class="page" id="p5">
+                <h2 class="text-2xl font-romantic text-pink-500 mb-4">Nuestras risas</h2>
+                <img src="1000193949.jpg" class="photo-frame" alt="Foto 5">
+                <p class="text-sm text-gray-600 italic">"Gracias por hacerme tan feliz."</p>
+            </div>
+
+            <div class="page" id="p6">
+                <h2 class="text-2xl font-romantic text-pink-500 mb-4">Noches mágicas</h2>
+                <img src="1000193951.jpg" class="photo-frame" alt="Foto 6">
+                <p class="text-sm text-gray-600 italic">"Celebrando cada segundo a tu lado."</p>
+            </div>
+
+            <div class="page" id="p7">
+                <h2 class="text-2xl font-romantic text-pink-500 mb-4">Siempre te cuido</h2>
+                <img src="1000193920.jpg" class="photo-frame" alt="Foto 7">
+                <p class="text-sm text-gray-600 italic">"Juntos podemos con todo."</p>
+            </div>
+
+            <div class="page" id="p8">
+                <h2 class="text-2xl font-romantic text-pink-500 mb-4">Brillando juntos</h2>
+                <img src="1000193917.jpg" class="photo-frame" alt="Foto 8">
+                <p class="text-sm text-gray-600 italic">"La pareja más linda de todas las líneas temporales."</p>
+            </div>
+
+            <!-- PAGINA FINAL CON MÚSICA -->
+            <div class="page" id="p9">
+                <div class="text-center mt-4 flex flex-col items-center">
+                    <h2 class="text-3xl font-romantic text-pink-600 mb-4">Feliz Aniversario</h2>
+                    <img src="1000193981.jpg" class="photo-frame w-48" alt="Final">
+                    
+                    <div class="bg-pink-50 p-4 rounded-2xl border-2 border-pink-200 w-full mb-4">
+                        <p class="text-sm text-pink-700 font-bold mb-3 italic">
+                            "subí el volumen que está canción está demasiado buena"
+                        </p>
+                        
+                        <div onclick="toggleMusic()" class="music-heart inline-block">
+                            <svg class="w-20 h-20 text-pink-500 drop-shadow-md" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                <path d="M11 8v5.27c-.42-.17-.88-.27-1.37-.27-1.45 0-2.63 1.18-2.63 2.63S8.18 18.26 9.63 18.26s2.63-1.18 2.63-2.63V10h3V8h-4.26z" fill="white" />
+                            </svg>
+                        </div>
+                        <p class="text-xs text-pink-400 mt-2" id="musicStatus">Toca el corazón para reproducir ♪</p>
+                    </div>
+
+                    <p class="font-romantic text-2xl text-pink-600">
+                        Para mai lov. De tu Lov ( ͡° ͜ʖ ͡°)
+                    </p>
+
+                    <audio id="loveSong" src="Aleew_[cut_41sec].mp3"></audio>
+
+                    <button onclick="goToPage(0)" class="mt-6 text-xs text-gray-400 underline">Volver a empezar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CONTROLES -->
+    <div class="fixed bottom-8 left-0 w-full flex justify-center gap-6 items-center px-4">
+        <button id="prevBtn" class="nav-btn" onclick="prevPage()" disabled>Anterior</button>
+        <div class="bg-white/80 backdrop-blur px-4 py-2 rounded-full shadow-sm text-pink-600 font-bold" id="pageNumber">
+            1 / 10
+        </div>
+        <button id="nextBtn" class="nav-btn" onclick="nextPage()">Siguiente</button>
+    </div>
+
+    <script>
+        let curr = 0;
+        const total = 10;
+        const audio = document.getElementById('loveSong');
+        const status = document.getElementById('musicStatus');
+
+        function update() {
+            for(let i=0; i<total; i++) document.getElementById(`p${i}`).classList.remove('active');
+            document.getElementById(`p${curr}`).classList.add('active');
+            document.getElementById('prevBtn').disabled = curr === 0;
+            document.getElementById('nextBtn').disabled = curr === total - 1;
+            document.getElementById('pageNumber').innerText = `${curr + 1} / ${total}`;
+        }
+
+        function nextPage() { if(curr < total - 1) { curr++; update(); } }
+        function prevPage() { if(curr > 0) { curr--; update(); } }
+        function goToPage(n) { curr = n; update(); }
+
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    status.innerText = "Sonando... ♪";
+                }).catch(e => {
+                    console.log("Error al reproducir", e);
+                    status.innerText = "Error: Asegúrate de subir el MP3";
+                });
+            } else {
+                audio.pause();
+                status.innerText = "Pausado. ¡Dale de nuevo!";
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if(e.key === "ArrowRight") nextPage();
+            if(e.key === "ArrowLeft") prevPage();
+        });
+    </script>
+</body>
+</html>
+
